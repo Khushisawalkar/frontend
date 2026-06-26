@@ -13,9 +13,9 @@ export default function Features() {
       icon: "chart-pie.svg",
       animation: (
          <div className="h-32 w-full mb-10 flex items-end justify-center gap-6 px-4 pt-4">
-            <div className="w-1.5 h-16 rounded-full bg-white/10 animate-breathe-slow" />
-            <div className="w-1.5 h-24 rounded-full bg-white/20 animate-breathe-slower" style={{ animationDelay: '1s' }} />
-            <div className="w-1.5 h-12 rounded-full bg-white/10 animate-breathe-slow" style={{ animationDelay: '2s' }} />
+            <div className="w-1.5 h-16 rounded-full bg-[#F1F6F4]/10 animate-breathe-slow" />
+            <div className="w-1.5 h-24 rounded-full bg-[#F1F6F4]/20 animate-breathe-slower" style={{ animationDelay: '1s' }} />
+            <div className="w-1.5 h-12 rounded-full bg-[#F1F6F4]/10 animate-breathe-slow" style={{ animationDelay: '2s' }} />
          </div>
       )
     },
@@ -25,8 +25,8 @@ export default function Features() {
       icon: "arrow-path.svg",
       animation: (
          <div className="h-32 w-full mb-10 relative flex items-center justify-center pt-4">
-            <div className="absolute w-24 h-24 rounded-full border border-white/5" />
-            <div className="absolute w-16 h-16 rounded-full border border-white/10 animate-[spin_20s_linear_infinite]" />
+            <div className="absolute w-24 h-24 rounded-full border border-[#F1F6F4]/5" />
+            <div className="absolute w-16 h-16 rounded-full border border-[#F1F6F4]/10 animate-[spin_20s_linear_infinite]" />
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D9E8E2]/20 to-transparent backdrop-blur-md animate-breathe-slow" />
          </div>
       )
@@ -37,7 +37,7 @@ export default function Features() {
       icon: "cog-8-tooth.svg",
       animation: (
          <div className="h-32 w-full mb-10 relative flex items-center justify-center pt-4">
-            <svg viewBox="0 0 100 100" className="w-24 h-24 text-white/10 overflow-visible">
+            <svg viewBox="0 0 100 100" className="w-24 h-24 text-[#F1F6F4]/10 overflow-visible">
                <path d="M10,50 Q50,10 90,50 T170,50" fill="none" stroke="currentColor" strokeWidth="2" className="animate-float" />
                <circle cx="50" cy="50" r="4" fill="#D9E8E2" opacity="0.5" className="animate-breathe-slow" />
             </svg>
@@ -52,11 +52,11 @@ export default function Features() {
         
         {/* Editorial Header */}
         <div className="mb-24 text-center max-w-2xl mx-auto">
-          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-white/95 leading-tight">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-[#F1F6F4]/95 leading-tight">
             Crafted for <br />
-            <span className="text-white/60 italic font-serif">quiet intelligence.</span>
+            <span className="text-[#F1F6F4]/60 italic font-serif">quiet intelligence.</span>
           </h2>
-          <p className="text-[17px] text-white/50 leading-relaxed font-light">
+          <p className="text-[17px] text-[#F1F6F4]/50 leading-relaxed font-light">
             We stripped away the noise so your infrastructure can breathe. Every interaction feels fluid and intentional.
           </p>
         </div>
@@ -70,8 +70,8 @@ export default function Features() {
               <div 
                 key={index}
                 onMouseEnter={() => window.innerWidth >= 768 && setActiveIndex(index)}
-                className={`relative bg-white/[0.02] rounded-[2.5rem] border overflow-hidden group transition-all duration-[600ms] ease-out ${
-                  isActive ? "border-white/10 bg-white/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.1)]" : "border-white/5"
+                className={`relative bg-[#F1F6F4]/[0.02] rounded-[2.5rem] border overflow-hidden group transition-all duration-[600ms] ease-out ${
+                  isActive ? "border-[#F1F6F4]/10 bg-[#F1F6F4]/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.1)]" : "border-[#F1F6F4]/5"
                 }`}
               >
                 
@@ -84,9 +84,9 @@ export default function Features() {
                     <div className="w-12 h-12 flex items-center justify-center opacity-60 transition-opacity duration-500 group-hover:opacity-100">
                        <div className="w-5 h-5 transition-transform duration-1000 group-hover:rotate-180" style={{ backgroundColor: "#D9E8E2", maskImage: `url('/frontend/SVGs/${feat.icon}')`, maskSize: "contain", maskRepeat: "no-repeat", WebkitMaskImage: `url('/frontend/SVGs/${feat.icon}')`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat" }} />
                     </div>
-                    <h3 className="text-[19px] font-medium tracking-tight md:hidden text-white/90">{feat.title}</h3>
+                    <h3 className="text-[19px] font-medium tracking-tight md:hidden text-[#F1F6F4]/90">{feat.title}</h3>
                   </div>
-                  <ChevronDown className={`md:hidden transition-transform duration-500 ${isActive ? "rotate-180 text-white" : "text-white/30"}`} />
+                  <ChevronDown className={`md:hidden transition-transform duration-500 ${isActive ? "rotate-180 text-[#F1F6F4]" : "text-[#F1F6F4]/30"}`} />
                 </div>
 
                 {/* Body Content (Desktop: Always Visible, Mobile: Accordion Body) */}
@@ -96,8 +96,8 @@ export default function Features() {
                    }`}
                 >
                   {feat.animation}
-                  <h3 className="text-[22px] font-medium mb-4 tracking-tight hidden md:block text-white/90">{feat.title}</h3>
-                  <p className="text-white/50 text-[16px] leading-relaxed font-light">{feat.desc}</p>
+                  <h3 className="text-[22px] font-medium mb-4 tracking-tight hidden md:block text-[#F1F6F4]/90">{feat.title}</h3>
+                  <p className="text-[#F1F6F4]/50 text-[16px] leading-relaxed font-light">{feat.desc}</p>
                 </div>
 
               </div>

@@ -23,10 +23,10 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm font-medium text-[var(--color-arctic-powder)] hover:text-white transition-colors">
+          <button className="text-sm font-medium text-[var(--color-arctic-powder)] hover:text-[#F1F6F4] transition-colors">
             Login
           </button>
-          <button className="px-5 py-2 rounded-full font-medium text-sm border border-[var(--color-mystic-mint)]/20 text-[var(--color-arctic-powder)] hover:bg-white/5 transition-colors">
+          <button className="px-5 py-2 rounded-full font-medium text-sm border border-[var(--color-mystic-mint)]/20 text-[var(--color-arctic-powder)] hover:bg-[#F1F6F4]/5 transition-colors">
             Contact Sales
           </button>
           <button className="px-5 py-2 rounded-full font-medium text-sm bg-[var(--color-forsythia)] text-[#0F171A] hover:bg-[#ffb400] transition-colors">
