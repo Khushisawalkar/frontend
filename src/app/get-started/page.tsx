@@ -1,17 +1,56 @@
+"use client";
+
 import Background from "@/components/background/Background";
 import CursorGlow from "@/components/common/CursorGlow";
 import Navbar from "@/components/navbar/Navbar";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export default function GetStarted() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+
+    try {
+      // Using Web3Forms for serverless email forwarding on static sites (GitHub Pages)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // <-- PASTE YOUR FREE KEY HERE
+          email: email,
+          subject: "New Access Request for AetherFlow",
+          from_name: "AetherFlow Landing Page",
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
   return (
-    <main className="relative min-h-screen overflow-hidden flex items-center justify-center">
+    <main className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center">
       <Background />
       <CursorGlow />
       <Navbar />
       
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 mt-20">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FFC801] via-[#FF9932] to-[#114C5A] shadow-[0_0_40px_rgba(255,200,1,0.3)] flex items-center justify-center mb-8 animate-pulse-slow">
             <span className="font-black text-black text-2xl">A</span>
         </div>
@@ -23,16 +62,43 @@ export default function GetStarted() {
           The ultimate AI workflow orchestration platform is coming soon. Enter your email to get early access.
         </p>
 
-        <form className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto mb-16">
-          <input 
-            type="email" 
-            placeholder="Enter your work email" 
-            className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white outline-none focus:border-[#FFC801] transition-colors"
-          />
-          <button type="button" className="bg-[#FFC801] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,200,1,0.2)]">
-            Request Access
-          </button>
-        </form>
+        {status === "success" ? (
+          <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500 mb-16">
+            <CheckCircle2 size={64} className="text-[#3CB3A5] mb-6" />
+            <h2 className="text-2xl font-bold text-white mb-2">You're on the list!</h2>
+            <p className="text-white/60 text-center max-w-sm">
+              We've received your request. Keep an eye on <span className="text-[#FFC801]">{email}</span> for your early access invitation.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto mb-16 relative">
+            <input 
+              type="email" 
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === "loading"}
+              placeholder="Enter your work email" 
+              className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white outline-none focus:border-[#FFC801] transition-colors disabled:opacity-50"
+            />
+            <button 
+              type="submit" 
+              disabled={status === "loading"}
+              className="bg-[#FFC801] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,200,1,0.2)] disabled:opacity-50 disabled:hover:scale-100 min-w-[160px] flex justify-center items-center"
+            >
+              {status === "loading" ? (
+                <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+              ) : (
+                "Request Access"
+              )}
+            </button>
+            {status === "error" && (
+              <p className="text-red-400 text-sm absolute -bottom-8 left-0 text-center w-full">
+                Invalid Access Key. Please configure Web3Forms.
+              </p>
+            )}
+          </form>
+        )}
 
         <Link href="/" className="text-white/50 hover:text-white transition-colors flex items-center gap-2 group">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
