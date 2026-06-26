@@ -61,48 +61,33 @@ export default function Features() {
           </p>
         </div>
 
-        {/* Bento Grid (Desktop) / Accordion (Mobile) Wrapper - CONTEXT LOCK RETAINED */}
+        {/* Elegant Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          {features.map((feat, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <div 
-                key={index}
-                onMouseEnter={() => window.innerWidth >= 768 && setActiveIndex(index)}
-                className={`relative bg-arctic/[0.02] rounded-[2.5rem] border overflow-hidden group transition-all duration-[600ms] ease-out ${
-                  isActive ? "border-arctic/10 bg-arctic/[0.04] shadow-[0_30px_60px_rgba(0,0,0,0.1)]" : "border-arctic/5"
-                }`}
-              >
-                
-                {/* Accordion Header (Mobile Clickable Area) */}
-                <div 
-                  className="relative z-10 flex items-center justify-between p-8 md:p-10 cursor-pointer md:cursor-default"
-                  onClick={() => window.innerWidth < 768 && setActiveIndex(index)}
-                >
-                  <div className="flex items-center gap-5">
-                    <div className="w-12 h-12 flex items-center justify-center opacity-60 transition-opacity duration-500 group-hover:opacity-100">
-                       <div className="w-5 h-5 transition-transform duration-1000 group-hover:rotate-180" style={{ backgroundColor: "#D9E8E2", maskImage: `url('/frontend/SVGs/${feat.icon}')`, maskSize: "contain", maskRepeat: "no-repeat", WebkitMaskImage: `url('/frontend/SVGs/${feat.icon}')`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat" }} />
-                    </div>
-                    <h3 className="text-[19px] font-medium tracking-tight md:hidden text-arctic/90">{feat.title}</h3>
-                  </div>
-                  <ChevronDown className={`md:hidden transition-transform duration-500 ${isActive ? "rotate-180 text-arctic" : "text-arctic/30"}`} />
+          {features.map((feat, index) => (
+            <div 
+              key={index}
+              className="relative bg-arctic/[0.02] rounded-[2.5rem] border border-arctic/5 overflow-hidden group transition-all duration-[800ms] hover:border-arctic/10 hover:bg-arctic/[0.04] hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] flex flex-col h-full"
+            >
+              
+              {/* Top Icon */}
+              <div className="p-10 pb-0">
+                <div className="w-12 h-12 flex items-center justify-center opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-100">
+                   <div className="w-6 h-6" style={{ backgroundColor: "#D9E8E2", maskImage: `url('/frontend/SVGs/${feat.icon}')`, maskSize: "contain", maskRepeat: "no-repeat", WebkitMaskImage: `url('/frontend/SVGs/${feat.icon}')`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat" }} />
                 </div>
+              </div>
 
-                {/* Body Content (Desktop: Always Visible, Mobile: Accordion Body) */}
-                <div 
-                   className={`relative z-10 flex flex-col transition-[max-height,opacity,padding] duration-[600ms] ease-out overflow-hidden md:max-h-[600px] md:opacity-100 md:px-10 md:pb-10 ${
-                     isActive ? "max-h-[600px] opacity-100 px-8 pb-8" : "max-h-0 opacity-0 px-8 pb-0 md:px-10 md:pb-10"
-                   }`}
-                >
-                  {feat.animation}
-                  <h3 className="text-[22px] font-medium mb-4 tracking-tight hidden md:block text-arctic/90">{feat.title}</h3>
+              {/* Body Content */}
+              <div className="flex-1 flex flex-col p-10 pt-8">
+                {feat.animation}
+                <div className="mt-auto">
+                  <h3 className="text-[22px] font-medium mb-4 tracking-tight text-arctic/90">{feat.title}</h3>
                   <p className="text-arctic/50 text-[16px] leading-relaxed font-light">{feat.desc}</p>
                 </div>
-
               </div>
-            )
-          })}
+
+            </div>
+          ))}
 
         </div>
       </div>
