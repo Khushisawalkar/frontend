@@ -56,7 +56,7 @@ export default function Features() {
                 <span className="font-mono text-sm text-[var(--color-arctic-powder)]/30 font-semibold">{feat.num}</span>
               </div>
               
-              <h3 className="text-[#F1F6F4] font-semibold text-xl mb-3 tracking-tight">{feat.title}</h3>
+              <h3 className="text-arctic font-semibold text-xl mb-3 tracking-tight">{feat.title}</h3>
               
               <p className="text-[var(--color-arctic-powder)]/50 text-[15px] leading-relaxed mb-10 flex-grow">
                 {feat.desc}

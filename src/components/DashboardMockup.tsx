@@ -20,7 +20,7 @@ const DashboardMockup = memo(() => {
           
           {/* Main Back Panel */}
           <div className="absolute inset-4 md:inset-8 top-12 bg-[var(--color-nocturnal-expedition)]/40 backdrop-blur-3xl rounded-[2.5rem] border border-[var(--color-mystic-mint)]/10 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#F1F6F4]/5 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-arctic/5 to-transparent pointer-events-none" />
             
             {/* Header */}
             <div className="h-20 border-b border-[var(--color-mystic-mint)]/10 flex items-center px-8 justify-between">
@@ -38,7 +38,7 @@ const DashboardMockup = memo(() => {
             <div className="p-8 h-full flex flex-col gap-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[...Array(3)].map((_, i) => (
-                  <div key={i} className="h-24 rounded-2xl bg-[#172B36]/20 border border-[var(--color-mystic-mint)]/5 relative overflow-hidden group">
+                  <div key={i} className="h-24 rounded-2xl bg-oceanic/20 border border-[var(--color-mystic-mint)]/5 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--color-nocturnal-expedition)]/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                     <div className="p-4 flex flex-col justify-between h-full">
                       <span className="font-mono text-[var(--color-mystic-mint)]/40 text-xs">METRIC_0{i+1}</span>
@@ -51,7 +51,7 @@ const DashboardMockup = memo(() => {
               </div>
               
               {/* Massive Data Vis Area */}
-              <div className="flex-1 rounded-2xl bg-[#172B36]/40 border border-[var(--color-mystic-mint)]/5 relative overflow-hidden flex items-end">
+              <div className="flex-1 rounded-2xl bg-oceanic/40 border border-[var(--color-mystic-mint)]/5 relative overflow-hidden flex items-end">
                 {/* SVG Data Stream Animation */}
                 <div className="w-full h-[80%] flex items-end gap-1 px-4 opacity-50">
                   {[...Array(40)].map((_, i) => (

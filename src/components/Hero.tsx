@@ -32,9 +32,9 @@ export default function Hero() {
               <div className="w-4 h-4 bg-current" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
             </button>
             
-            <button className="flex items-center justify-center gap-3 px-8 py-3.5 rounded-lg font-medium text-[var(--color-arctic-powder)] border border-[var(--color-mystic-mint)]/20 hover:bg-[#F1F6F4]/5 transition-colors bg-[#172B36]/30">
+            <button className="flex items-center justify-center gap-3 px-8 py-3.5 rounded-lg font-medium text-[var(--color-arctic-powder)] border border-[var(--color-mystic-mint)]/20 hover:bg-arctic/5 transition-colors bg-oceanic/30">
               Read the Docs
-              <span className="flex items-center justify-center w-5 h-5 rounded bg-[#F1F6F4]/10 text-[10px] font-mono border border-[#F1F6F4]/10 text-[var(--color-arctic-powder)]/60">F</span>
+              <span className="flex items-center justify-center w-5 h-5 rounded bg-arctic/10 text-[10px] font-mono border border-arctic/10 text-[var(--color-arctic-powder)]/60">F</span>
             </button>
           </div>
 

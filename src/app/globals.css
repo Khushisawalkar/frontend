@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  
+  --color-arctic: #F1F6F4;
+  --color-mystic: #D9E8E2;
+  --color-forsythia: #FFC801;
+  --color-saffron: #FF9932;
+  --color-nocturnal: #114C5A;
+  --color-oceanic: #172B36;
+}
+
 :root {
   --font-inter: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -7,16 +19,8 @@
   --foreground: #f1f6f4;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 body{
   background:var(--background);
   color:var(--foreground);
@@ -26,8 +30,8 @@ body{
 }
 
 ::selection{
-  background:#D9E8E2;
-  color:#172B36;
+  background: #FFC801;
+  color: #172B36;
 }
 
 .section {
@@ -40,13 +44,13 @@ body{
 =========================== */
 
 @keyframes breatheSlow {
-  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.3; }
-  50% { transform: scale(1.05) translate(2%, 2%); opacity: 0.4; }
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  50% { transform: scale(1.05) translate(2%, 2%); opacity: 0.8; }
 }
 
 @keyframes breatheSlower {
-  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.2; }
-  50% { transform: scale(1.1) translate(-2%, -2%); opacity: 0.25; }
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+  50% { transform: scale(1.1) translate(-2%, -2%); opacity: 0.6; }
 }
 
 @keyframes floatSoft {

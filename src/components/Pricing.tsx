@@ -39,7 +39,7 @@ export default function Pricing() {
         <div className="flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto gap-8 md:gap-0">
           
           {/* Plan 1 */}
-          <div className="w-full md:w-1/3 p-8 rounded-[2rem] bg-[#F1F6F4]/5 backdrop-blur-md border border-[var(--color-mystic-mint)]/10 md:translate-x-8 md:rounded-r-none z-0 hover:bg-[#F1F6F4]/10 transition-colors">
+          <div className="w-full md:w-1/3 p-8 rounded-[2rem] bg-arctic/5 backdrop-blur-md border border-[var(--color-mystic-mint)]/10 md:translate-x-8 md:rounded-r-none z-0 hover:bg-arctic/10 transition-colors">
             <h3 className="font-mono text-xl text-[var(--color-arctic-powder)] mb-2">{plans[0].name}</h3>
             <div className="font-mono text-5xl font-black text-[var(--color-arctic-powder)] mb-8">{plans[0].price}</div>
             <ul className="space-y-4 mb-8">
@@ -50,7 +50,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 rounded-xl font-mono text-sm font-bold bg-[#F1F6F4]/5 text-[var(--color-arctic-powder)] hover:bg-[#F1F6F4]/10 transition-colors border border-[var(--color-mystic-mint)]/20">
+            <button className="w-full py-4 rounded-xl font-mono text-sm font-bold bg-arctic/5 text-[var(--color-arctic-powder)] hover:bg-arctic/10 transition-colors border border-[var(--color-mystic-mint)]/20">
               Start Building
             </button>
           </div>
@@ -78,7 +78,7 @@ export default function Pricing() {
           </div>
 
           {/* Plan 3 */}
-          <div className="w-full md:w-1/3 p-8 rounded-[2rem] bg-[#F1F6F4]/5 backdrop-blur-md border border-[var(--color-mystic-mint)]/10 md:-translate-x-8 md:rounded-l-none z-0 hover:bg-[#F1F6F4]/10 transition-colors">
+          <div className="w-full md:w-1/3 p-8 rounded-[2rem] bg-arctic/5 backdrop-blur-md border border-[var(--color-mystic-mint)]/10 md:-translate-x-8 md:rounded-l-none z-0 hover:bg-arctic/10 transition-colors">
             <h3 className="font-mono text-xl text-[var(--color-arctic-powder)] mb-2">{plans[2].name}</h3>
             <div className="font-mono text-5xl font-black text-[var(--color-arctic-powder)] mb-8">{plans[2].price}</div>
             <ul className="space-y-4 mb-8">
@@ -89,7 +89,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 rounded-xl font-mono text-sm font-bold bg-[#F1F6F4]/5 text-[var(--color-arctic-powder)] hover:bg-[#F1F6F4]/10 transition-colors border border-[var(--color-mystic-mint)]/20">
+            <button className="w-full py-4 rounded-xl font-mono text-sm font-bold bg-arctic/5 text-[var(--color-arctic-powder)] hover:bg-arctic/10 transition-colors border border-[var(--color-mystic-mint)]/20">
               Contact Sales
             </button>
           </div>

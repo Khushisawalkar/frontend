@@ -86,32 +86,32 @@ export default function Pricing() {
         
         {/* Editorial Header */}
         <div className="mb-24 text-center max-w-2xl mx-auto">
-          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-[#F1F6F4]/95 leading-tight">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-arctic/95 leading-tight">
             Transparent, <br />
-            <span className="text-[#F1F6F4]/60 italic font-serif">graceful pricing.</span>
+            <span className="text-arctic/60 italic font-serif">graceful pricing.</span>
           </h2>
-          <p className="text-[17px] text-[#F1F6F4]/50 leading-relaxed font-light">
+          <p className="text-[17px] text-arctic/50 leading-relaxed font-light">
             No hidden fees. No sudden spikes. Just a calm, predictable structure that scales quietly alongside your growth.
           </p>
 
           {/* Pluffymaid Pricing Controls */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 bg-[#F1F6F4]/[0.02] p-3 rounded-full border border-[#F1F6F4]/5 max-w-[480px] mx-auto backdrop-blur-xl">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 bg-arctic/[0.02] p-3 rounded-full border border-arctic/5 max-w-[480px] mx-auto backdrop-blur-xl">
             
             <div className="flex items-center gap-4 px-4">
-              <span className="text-[#F1F6F4]/60 font-medium text-[14px]">Monthly</span>
+              <span className="text-arctic/60 font-medium text-[14px]">Monthly</span>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" ref={billingToggleRef} className="sr-only peer" />
-                <div className="w-12 h-6 bg-[#F1F6F4]/5 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#F1F6F4]/80 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#F1F6F4]/20"></div>
+                <div className="w-12 h-6 bg-arctic/5 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-arctic/80 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-arctic/20"></div>
               </label>
-              <span className="text-[#F1F6F4]/60 font-medium text-[14px] flex items-center gap-2">
-                 Annual <span className="text-[10px] font-bold tracking-wider uppercase bg-[#114C5A] text-[#D9E8E2] px-2 py-0.5 rounded-full">Save 20%</span>
+              <span className="text-arctic/60 font-medium text-[14px] flex items-center gap-2">
+                 Annual <span className="text-[10px] font-bold tracking-wider uppercase bg-nocturnal text-mystic px-2 py-0.5 rounded-full">Save 20%</span>
               </span>
             </div>
 
-            <div className="w-px h-6 bg-[#F1F6F4]/10 hidden sm:block" />
+            <div className="w-px h-6 bg-arctic/10 hidden sm:block" />
 
             <div className="relative pr-4">
-              <select ref={currencySelectRef} className="bg-transparent text-[#F1F6F4]/80 text-[14px] font-medium outline-none appearance-none cursor-pointer">
+              <select ref={currencySelectRef} className="bg-transparent text-arctic/80 text-[14px] font-medium outline-none appearance-none cursor-pointer">
                 <option value="USD">USD ($)</option>
                 <option value="EUR">EUR (€)</option>
                 <option value="INR">INR (₹)</option>
@@ -128,37 +128,37 @@ export default function Pricing() {
               key={plan.name}
               className={`relative rounded-[2.5rem] p-10 flex flex-col group transition-all duration-[800ms] ease-out ${
                 plan.popular 
-                  ? "bg-[#F1F6F4]/[0.04] border border-[#F1F6F4]/10 shadow-[0_40px_80px_rgba(0,0,0,0.2)] md:-translate-y-4 hover:-translate-y-6 z-10" 
-                  : "bg-[#F1F6F4]/[0.01] border border-[#F1F6F4]/5 hover:border-[#F1F6F4]/10 hover:bg-[#F1F6F4]/[0.02] hover:-translate-y-2"
+                  ? "bg-arctic/[0.04] border border-arctic/10 shadow-[0_40px_80px_rgba(0,0,0,0.2)] md:-translate-y-4 hover:-translate-y-6 z-10" 
+                  : "bg-arctic/[0.01] border border-arctic/5 hover:border-arctic/10 hover:bg-arctic/[0.02] hover:-translate-y-2"
               }`}
             >
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F1F6F4] text-[#172B36] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-arctic text-oceanic px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">
                   Most Popular
                 </div>
               )}
 
-              <h3 className="text-[22px] font-medium mb-3 text-[#F1F6F4]/90">{plan.name}</h3>
-              <p className="text-[#F1F6F4]/50 text-[15px] font-light mb-8 h-12 leading-relaxed">{plan.description}</p>
+              <h3 className="text-[22px] font-medium mb-3 text-arctic/90">{plan.name}</h3>
+              <p className="text-arctic/50 text-[15px] font-light mb-8 h-12 leading-relaxed">{plan.description}</p>
               
-              <div className="flex items-baseline gap-1 mb-10 pb-10 border-b border-[#F1F6F4]/5">
+              <div className="flex items-baseline gap-1 mb-10 pb-10 border-b border-arctic/5">
                 <span 
                   ref={el => { priceNodesRef.current[plan.id] = el; }} 
-                  className="text-[3.5rem] font-light text-[#F1F6F4]/95 tracking-tight"
+                  className="text-[3.5rem] font-light text-arctic/95 tracking-tight"
                 >
                   $0
                 </span>
-                <span className="text-[#F1F6F4]/40 font-light text-lg">/mo</span>
+                <span className="text-arctic/40 font-light text-lg">/mo</span>
               </div>
 
               <div className="flex-1">
                 <ul className="space-y-5 mb-12">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-4">
-                      <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center ${plan.popular ? "bg-[#D9E8E2]/20 text-[#D9E8E2]" : "bg-[#F1F6F4]/5 text-[#F1F6F4]/40"}`}>
+                      <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center ${plan.popular ? "bg-mystic/20 text-mystic" : "bg-arctic/5 text-arctic/40"}`}>
                         <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-[#F1F6F4]/60 text-[15px] font-light">{feature}</span>
+                      <span className="text-arctic/60 text-[15px] font-light">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -168,8 +168,8 @@ export default function Pricing() {
                 href="/get-started" 
                 className={`w-full py-4 rounded-full text-[15px] font-medium text-center transition-all duration-500 ${
                   plan.popular 
-                    ? "bg-[#F1F6F4] text-[#172B36] hover:scale-[1.02] shadow-[0_10px_20px_rgba(255,255,255,0.1)]" 
-                    : "bg-[#F1F6F4]/5 text-[#F1F6F4] hover:bg-[#F1F6F4]/10 border border-[#F1F6F4]/5"
+                    ? "bg-arctic text-oceanic hover:scale-[1.02] shadow-[0_10px_20px_rgba(255,255,255,0.1)]" 
+                    : "bg-arctic/5 text-arctic hover:bg-arctic/10 border border-arctic/5"
                 }`}
               >
                 {plan.cta}
