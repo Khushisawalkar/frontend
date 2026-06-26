@@ -196,7 +196,7 @@ button{
 }
 
 /* ===========================
-   AURORA
+   AURORA & SHIMMER
 =========================== */
 
 .aurora{
@@ -240,4 +240,10 @@ button{
 @keyframes floatTwo{
   0%,100%{ transform:translateY(0); }
   50%{ transform:translateY(-60px); }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }
