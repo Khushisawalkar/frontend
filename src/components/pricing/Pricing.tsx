@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useMemo, useState } from "react";
 
 const pricingMatrix = {
   baseRates: { hobby: 19, pro: 49, enterprise: 199 },
@@ -52,44 +52,18 @@ const plans: {
 ];
 
 export default function Pricing() {
-  const billingToggleRef = useRef<HTMLInputElement>(null);
-  const currencySelectRef = useRef<HTMLSelectElement>(null);
-  const priceNodesRef = useRef<{ [key: string]: HTMLSpanElement | null }>({});
+  const [isAnnual, setIsAnnual] = useState(false);
+  const [currency, setCurrency] = useState<Currency>("USD");
 
-  useEffect(() => {
-    const billingToggle = billingToggleRef.current;
-    const currencySelect = currencySelectRef.current;
-
-    const updatePrices = () => {
-      if (!billingToggle || !currencySelect) return;
-
-      const isAnnual = billingToggle.checked;
-      const currency = currencySelect.value as Currency;
-      
+  const priceFor = useMemo(() => {
+    return (planId: PlanId) => {
       const multiplier = isAnnual ? pricingMatrix.multipliers.annual : pricingMatrix.multipliers.monthly;
       const tariff = pricingMatrix.tariffs[currency];
-
-      plans.forEach(plan => {
-        const node = priceNodesRef.current[plan.id];
-        if (node) {
-          const baseRate = pricingMatrix.baseRates[plan.id];
-          const finalPrice = Math.round(baseRate * multiplier * tariff.rate);
-          node.textContent = `${tariff.symbol}${finalPrice}`;
-        }
-      });
+      const baseRate = pricingMatrix.baseRates[planId];
+      const finalPrice = Math.round(baseRate * multiplier * tariff.rate);
+      return `${tariff.symbol}${finalPrice}`;
     };
-
-    // Initial render setup
-    updatePrices();
-
-    billingToggle?.addEventListener('change', updatePrices);
-    currencySelect?.addEventListener('change', updatePrices);
-
-    return () => {
-      billingToggle?.removeEventListener('change', updatePrices);
-      currencySelect?.removeEventListener('change', updatePrices);
-    };
-  }, []);
+  }, [isAnnual, currency]);
 
   return (
     <section id="pricing" className="relative py-40 overflow-hidden z-10">
@@ -113,7 +87,8 @@ export default function Pricing() {
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
-                  ref={billingToggleRef}
+                  checked={isAnnual}
+                  onChange={(e) => setIsAnnual(e.target.checked)}
                   className="sr-only peer"
                 />
                 <div className="w-12 h-6 bg-arctic/5 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-arctic/80 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-arctic/20"></div>
@@ -127,7 +102,8 @@ export default function Pricing() {
 
             <div className="relative pr-4">
               <select
-                ref={currencySelectRef}
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value as Currency)}
                 className="bg-transparent text-arctic/80 text-[14px] font-medium outline-none appearance-none cursor-pointer"
               >
                 <option value="USD">USD ($)</option>
@@ -160,11 +136,8 @@ export default function Pricing() {
               <p className="text-arctic/50 text-[15px] font-light mb-8 h-12 leading-relaxed">{plan.description}</p>
 
               <div className="flex items-baseline gap-1 mb-10 pb-10 border-b border-arctic/5">
-                <span 
-                  ref={el => { priceNodesRef.current[plan.id] = el; }} 
-                  className="text-[3.5rem] font-light text-arctic/95 tracking-tight"
-                >
-                  $0
+                <span className="text-[3.5rem] font-light text-arctic/95 tracking-tight">
+                  {priceFor(plan.id)}
                 </span>
                 <span className="text-arctic/40 font-light text-lg">/mo</span>
               </div>
