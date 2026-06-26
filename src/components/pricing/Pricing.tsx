@@ -18,10 +18,10 @@ const plans = [
     popular: false,
   },
   {
-    name: "Pro",
-    price: "$49",
+    name: "Pro (Beta)",
+    price: "$0",
     period: "/mo",
-    description: "For teams building production-ready AI apps.",
+    description: "For teams building production-ready AI apps. Currently free during Beta.",
     features: [
       "50M events/month",
       "Adaptive routing AI",
@@ -29,13 +29,13 @@ const plans = [
       "30-day data retention",
       "Custom domains",
     ],
-    cta: "Get Started",
+    cta: "Get Early Access",
     popular: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    description: "Dedicated infrastructure for extreme scale.",
+    name: "Enterprise Sandbox",
+    price: "Free",
+    description: "Dedicated infrastructure for extreme scale testing.",
     features: [
       "Unlimited events",
       "Dedicated clusters",
@@ -43,7 +43,7 @@ const plans = [
       "Infinite data retention",
       "VPC Peering & SSO",
     ],
-    cta: "Contact Sales",
+    cta: "Join Waitlist",
     popular: false,
   },
 ];
