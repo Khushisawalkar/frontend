@@ -15,25 +15,25 @@ const resourceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-arctic/10 bg-oceanic/40 pt-24 pb-10 overflow-hidden z-10">
+    <footer className="relative border-t border-arctic/10 bg-oceanic/40 pt-32 pb-12 overflow-hidden z-10">
       <div className="section max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-24">
 
-          <div className="md:col-span-1">
+          <div className="md:col-span-5 lg:col-span-4 flex flex-col items-start">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-nocturnal to-oceanic border border-arctic/10">
-                <span className="font-serif italic font-medium text-arctic/90 text-base">A</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-nocturnal to-oceanic border border-arctic/10 shadow-lg">
+                <span className="font-serif italic font-medium text-arctic/90 text-lg">A</span>
               </div>
-              <span className="text-[16px] font-medium tracking-wide text-arctic/90">AetherFlow</span>
+              <span className="text-[17px] font-medium tracking-wide text-arctic/90">AetherFlow</span>
             </Link>
-            <p className="text-arctic/50 text-[14px] leading-relaxed font-light max-w-xs">
+            <p className="text-arctic/50 text-[15px] leading-relaxed font-light max-w-sm">
               Build, orchestrate, and scale AI infrastructure with sub-millisecond telemetry and enterprise-grade automation.
             </p>
           </div>
 
-          <div>
-            <h4 className="font-mono text-arctic/70 mb-6 text-[12px] uppercase tracking-widest">Platform</h4>
-            <ul className="space-y-4 text-[14px] text-arctic/50 font-light">
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className="font-mono text-arctic/70 mb-8 text-[11px] uppercase tracking-widest">Platform</h4>
+            <ul className="space-y-5 text-[15px] text-arctic/50 font-light">
               {sectionLinks.map((link) => (
                 <li key={link.title}>
                   <Link href={link.href} className="hover:text-arctic transition-colors">
@@ -44,9 +44,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-mono text-arctic/70 mb-6 text-[12px] uppercase tracking-widest">Resources</h4>
-            <ul className="space-y-4 text-[14px] text-arctic/50 font-light">
+          <div className="md:col-span-2 lg:col-span-2">
+            <h4 className="font-mono text-arctic/70 mb-8 text-[11px] uppercase tracking-widest">Resources</h4>
+            <ul className="space-y-5 text-[15px] text-arctic/50 font-light">
               {resourceLinks.map((link) => (
                 <li key={link.title}>
                   <Link href={link.href} className="hover:text-arctic transition-colors">
@@ -57,30 +57,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-mono text-arctic/70 mb-6 text-[12px] uppercase tracking-widest">Stay in sync</h4>
-            <p className="text-arctic/50 text-[14px] font-light leading-relaxed mb-4">
+          <div className="md:col-span-3 lg:col-span-4 flex flex-col items-start md:items-end md:text-right">
+            <h4 className="font-mono text-arctic/70 mb-8 text-[11px] uppercase tracking-widest">Stay in sync</h4>
+            <p className="text-arctic/50 text-[15px] font-light leading-relaxed mb-6 max-w-[240px]">
               Product updates, quietly, once a month. No noise.
             </p>
             <Link
               href="/get-started"
-              className="inline-flex items-center justify-center rounded-full bg-arctic/5 border border-arctic/10 px-5 py-2.5 text-[13px] font-medium text-arctic hover:bg-arctic hover:text-oceanic transition-all duration-500"
+              className="inline-flex items-center justify-center rounded-full bg-arctic/5 border border-arctic/10 px-6 py-3 text-[14px] font-medium text-arctic hover:bg-arctic hover:text-oceanic transition-all duration-500 shadow-[0_0_20px_rgba(241,246,244,0.05)] hover:shadow-[0_10px_30px_rgba(241,246,244,0.1)]"
             >
-              Get Started
+              Join the quiet
             </Link>
           </div>
 
         </div>
 
-        <div className="pt-8 border-t border-arctic/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-arctic/40 text-[12px] font-mono">
+        <div className="pt-8 border-t border-arctic/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-arctic/40 text-[13px] font-mono font-light">
             &copy; {new Date().getFullYear()} AetherFlow Intelligence. All rights reserved.
           </p>
           <a
             href="#"
-            className="text-arctic/50 hover:text-arctic text-[12px] font-mono uppercase tracking-widest transition-colors"
+            className="text-arctic/40 hover:text-arctic text-[11px] font-mono uppercase tracking-widest transition-colors flex items-center gap-2 group"
           >
             Back to top
+            <span className="w-5 h-5 rounded-full border border-arctic/10 flex items-center justify-center group-hover:bg-arctic group-hover:text-oceanic transition-colors">↑</span>
           </a>
         </div>
       </div>
