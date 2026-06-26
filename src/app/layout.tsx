@@ -14,10 +14,18 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+import { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#172B36",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "AetherFlow | AI Infrastructure",
+  title: "AetherFlow | Advanced AI Telemetry Platform",
   description:
-    "Build, orchestrate and scale AI infrastructure with enterprise-grade automation.",
+    "Build, orchestrate, and scale AI infrastructure with sub-millisecond telemetry and enterprise-grade automation.",
   keywords: [
     "AI",
     "Infrastructure",
@@ -25,15 +33,29 @@ export const metadata: Metadata = {
     "Machine Learning",
     "Cloud",
     "Data",
+    "Telemetry",
+    "Edge Nodes"
   ],
   authors: [{ name: "Khushi Sawalkar" }],
   creator: "Khushi Sawalkar",
-  themeColor: "#172B36",
   openGraph: {
     title: "AetherFlow",
-    description:
-      "Enterprise AI Infrastructure Platform",
+    description: "Enterprise AI Infrastructure Platform",
+    url: "https://Khushisawalkar.github.io/frontend/",
+    siteName: "AetherFlow",
+    images: [
+      {
+        url: "https://Khushisawalkar.github.io/frontend/og.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AetherFlow | Advanced AI Telemetry Platform",
+    description: "Build, orchestrate, and scale AI infrastructure with sub-millisecond telemetry.",
   },
 };
 
