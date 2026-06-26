@@ -70,7 +70,7 @@ const DashboardMockup = memo(() => {
                   <div className="font-mono text-[var(--color-mystic-mint)] text-xs mb-2 uppercase">Throughput</div>
                   <div className="text-4xl font-bold text-[var(--color-arctic-powder)] font-mono">1.2 TB/s</div>
                   <div className="flex items-center gap-2 mt-2">
-                     <div className="w-4 h-4 bg-[var(--color-deep-saffron)]" style={{ maskImage: "url('/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                     <div className="w-4 h-4 bg-[var(--color-deep-saffron)]" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                      <span className="text-[var(--color-deep-saffron)] text-sm font-mono">+9.4%</span>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ const DashboardMockup = memo(() => {
           {/* Overlapping Floating Panel (Untethered) */}
           <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 w-72 md:w-80 h-auto p-6 md:p-8 bg-[var(--color-oceanic-noir)] rounded-[2rem] shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-[var(--color-mystic-mint)]/20 z-20 flex flex-col justify-between transform transition-transform duration-700 hover:-translate-y-4 hover:scale-105">
             <div className="w-12 h-12 bg-[var(--color-forsythia)] rounded-xl flex items-center justify-center mb-6">
-               <div className="w-6 h-6 bg-[var(--color-oceanic-noir)]" style={{ maskImage: "url('/SVGs/cog-8-tooth.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/cog-8-tooth.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+               <div className="w-6 h-6 bg-[var(--color-oceanic-noir)]" style={{ maskImage: "url('/frontend/SVGs/cog-8-tooth.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/cog-8-tooth.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
             </div>
             <div>
               <h4 className="text-xl md:text-2xl font-bold text-[var(--color-arctic-powder)] mb-2">System Core</h4>

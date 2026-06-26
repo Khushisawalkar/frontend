@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3 cursor-pointer">
           <div className="w-8 h-8 rounded flex items-center justify-center">
             {/* SVG mask with Forsythia */}
-            <div className="w-8 h-8 bg-[var(--color-forsythia)]" style={{ maskImage: "url('/SVGs/cube-16-solid.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/cube-16-solid.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+            <div className="w-8 h-8 bg-[var(--color-forsythia)]" style={{ maskImage: "url('/frontend/SVGs/cube-16-solid.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/cube-16-solid.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
           </div>
           <span className="text-[var(--color-arctic-powder)] font-bold text-lg tracking-wide">NEXUS.AI</span>
         </div>

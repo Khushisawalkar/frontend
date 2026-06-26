@@ -1,27 +1,243 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-arctic-powder: #F1F6F4;
-  --color-oceanic-noir: #172B36;
-  --color-nocturnal-expedition: #114C5A;
-  --color-forsythia: #FFC801;
-  --color-deep-saffron: #FF9932;
-  --color-mystic-mint: #D9E8E2;
+/* ===========================
+   GOOGLE FONT VARIABLES
+=========================== */
 
-  --color-background: var(--color-oceanic-noir);
-  --color-foreground: var(--color-arctic-powder);
+:root {
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  /* ========= Official Palette ========= */
+
+  --background: #172b36;
+  --foreground: #f1f6f4;
+
+  --primary: #114c5a;
+  --secondary: #d9e8e2;
+
+  --accent: #ffc801;
+  --accent-secondary: #ff9932;
+
+  --card: rgba(217, 232, 226, 0.05);
+
+  --glass: rgba(255,255,255,0.05);
+
+  --glass-border: rgba(255,255,255,0.08);
+
+  --shadow: rgba(0,0,0,.35);
+
+  --radius: 28px;
 }
 
-body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
+/* ===========================
+   RESET
+=========================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  letter-spacing: -0.03em;
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--background);
+  color:var(--foreground);
+  font-family:var(--font-inter);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ===========================
+   SELECTION
+=========================== */
+
+::selection{
+  background:#FFC801;
+  color:#172B36;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#172B36;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#114C5A;
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#FFC801;
+}
+
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+
+h1,h2,h3,h4,h5,h6{
+  font-family:var(--font-inter);
+  letter-spacing:-.04em;
+  font-weight:800;
+}
+
+code,
+pre,
+.mono{
+  font-family:var(--font-mono);
+}
+
+/* ===========================
+   LINKS
+=========================== */
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+  cursor:pointer;
+  transition:all .35s ease;
+  border:none;
+  outline:none;
+}
+
+/* ===========================
+   GLASS
+=========================== */
+
+.glass{
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 80px rgba(0,0,0,.25);
+}
+
+/* ===========================
+   GRADIENT TEXT
+=========================== */
+
+.gradient-text{
+  background: linear-gradient(90deg, #FFC801, #FF9932, #F1F6F4);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.primary-btn{
+  background:#FFC801;
+  color:#172B36;
+  border-radius:999px;
+  padding:16px 34px;
+  font-weight:700;
+  transition:.35s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-3px);
+  box-shadow: 0 20px 60px rgba(255,200,1,.4);
+}
+
+/* ===========================
+   SECONDARY
+=========================== */
+
+.secondary-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  padding:16px 34px;
+  color:white;
+}
+
+.secondary-btn:hover{
+  border-color:#FFC801;
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section{
+  width:min(1400px,92%);
+  margin:auto;
+}
+
+/* ===========================
+   NOISE
+=========================== */
+
+.noise{
+  position:absolute;
+  inset:0;
+  opacity:.03;
+  pointer-events:none;
+  background-image: radial-gradient(circle,#fff 1px,transparent 1px);
+  background-size:22px 22px;
+}
+
+/* ===========================
+   AURORA
+=========================== */
+
+.aurora{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  z-index:-2;
+}
+
+.aurora::before{
+  content:"";
+  position:absolute;
+  width:800px;
+  height:800px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(17,76,90,.55), transparent 70%);
+  left:-250px;
+  top:-200px;
+  filter:blur(120px);
+  animation:floatOne 18s ease-in-out infinite;
+}
+
+.aurora::after{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  right:-250px;
+  bottom:-200px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(255,200,1,.20), transparent 70%);
+  filter:blur(140px);
+  animation:floatTwo 20s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(80px); }
+}
+
+@keyframes floatTwo{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-60px); }
 }

@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <button className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-semibold text-[#0F171A] bg-[var(--color-forsythia)] hover:bg-[#ffb400] transition-colors">
               Initialize Cluster
-              <div className="w-4 h-4 bg-current" style={{ maskImage: "url('/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+              <div className="w-4 h-4 bg-current" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
             </button>
             
             <button className="flex items-center justify-center gap-3 px-8 py-3.5 rounded-lg font-medium text-[var(--color-arctic-powder)] border border-[var(--color-mystic-mint)]/20 hover:bg-white/5 transition-colors bg-[#172B36]/30">
@@ -65,7 +65,7 @@ export default function Hero() {
                 <div className="absolute -top-6 left-0 w-full h-full bg-[#0D181C] border border-[var(--color-forsythia)]/20 rounded-xl" />
                 <div className="absolute -top-3 left-0 w-full h-full bg-[#111F24] border border-[var(--color-forsythia)]/40 rounded-xl" />
                 <div className="absolute top-0 left-0 w-full h-full bg-[#15252A] border border-[var(--color-forsythia)] rounded-xl shadow-[0_0_60px_rgba(255,200,1,0.15)] flex items-center justify-center">
-                  <div className="w-12 h-12 bg-[var(--color-forsythia)]" style={{ maskImage: "url('/SVGs/cube-16-solid.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/cube-16-solid.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                  <div className="w-12 h-12 bg-[var(--color-forsythia)]" style={{ maskImage: "url('/frontend/SVGs/cube-16-solid.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/cube-16-solid.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 </div>
               </div>
            </div>
@@ -74,7 +74,7 @@ export default function Hero() {
            {/* Node 1: Ingest (Top Left) */}
            <div className="absolute top-[10%] left-[25%] z-30 transform hover:-translate-y-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/cog-8-tooth.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/cog-8-tooth.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/cog-8-tooth.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/cog-8-tooth.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Ingest</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">Real-time Data</span>
               </div>
@@ -85,7 +85,7 @@ export default function Hero() {
            {/* Node 2: Process (Top Right) */}
            <div className="absolute top-[5%] right-[20%] z-30 transform hover:-translate-y-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/chart-pie.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/chart-pie.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/chart-pie.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/chart-pie.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Process</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">AI Pipelines</span>
               </div>
@@ -96,7 +96,7 @@ export default function Hero() {
            {/* Node 3: Sync (Mid Left) */}
            <div className="absolute top-[35%] left-[5%] z-30 transform hover:-translate-x-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/arrow-path.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-path.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/arrow-path.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-path.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Sync</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">Edge Nodes</span>
               </div>
@@ -107,7 +107,7 @@ export default function Hero() {
            {/* Node 4: Store (Mid Right) */}
            <div className="absolute top-[35%] right-[5%] z-30 transform hover:translate-x-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/search.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/search.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/search.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/search.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Store</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">Vectorized DB</span>
               </div>
@@ -118,7 +118,7 @@ export default function Hero() {
            {/* Node 5: Secure (Bottom Left) */}
            <div className="absolute bottom-[10%] left-[25%] z-30 transform hover:translate-y-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/x-mark.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/x-mark.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/x-mark.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/x-mark.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Secure</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">Zero Trust</span>
               </div>
@@ -129,7 +129,7 @@ export default function Hero() {
            {/* Node 6: Analyze (Bottom Right) */}
            <div className="absolute bottom-[10%] right-[20%] z-30 transform hover:translate-y-2 transition-transform duration-500">
               <div className="bg-[#0C1519] border border-[var(--color-mystic-mint)]/20 rounded-xl p-4 flex flex-col items-center justify-center shadow-2xl w-28 h-28">
-                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-5 h-5 bg-[#3CB3A5] mb-2" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 <span className="text-[var(--color-arctic-powder)] font-semibold text-xs tracking-wide">Analyze</span>
                 <span className="text-[var(--color-arctic-powder)]/40 text-[9px] mt-1">Insight Engine</span>
               </div>

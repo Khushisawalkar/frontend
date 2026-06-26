@@ -45,7 +45,7 @@ export default function Pricing() {
             <ul className="space-y-4 mb-8">
               {plans[0].features.map((feat, i) => (
                 <li key={i} className="flex items-center gap-3 text-[var(--color-mystic-mint)]/80 font-mono text-sm">
-                  <div className="w-3 h-3 bg-[var(--color-mystic-mint)]/50 min-w-3" style={{ maskImage: "url('/SVGs/chevron-right.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/chevron-right.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                  <div className="w-3 h-3 bg-[var(--color-mystic-mint)]/50 min-w-3" style={{ maskImage: "url('/frontend/SVGs/chevron-right.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/chevron-right.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                   {feat}
                 </li>
               ))}
@@ -67,7 +67,7 @@ export default function Pricing() {
             <ul className="space-y-4 mb-10">
               {plans[1].features.map((feat, i) => (
                 <li key={i} className="flex items-center gap-3 text-[var(--color-arctic-powder)] font-mono text-sm font-medium">
-                  <div className="w-4 h-4 bg-[var(--color-forsythia)] min-w-4" style={{ maskImage: "url('/SVGs/arrow-path.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-path.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                  <div className="w-4 h-4 bg-[var(--color-forsythia)] min-w-4" style={{ maskImage: "url('/frontend/SVGs/arrow-path.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-path.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                   {feat}
                 </li>
               ))}
@@ -84,7 +84,7 @@ export default function Pricing() {
             <ul className="space-y-4 mb-8">
               {plans[2].features.map((feat, i) => (
                 <li key={i} className="flex items-center gap-3 text-[var(--color-mystic-mint)]/80 font-mono text-sm">
-                  <div className="w-3 h-3 bg-[var(--color-mystic-mint)]/50 min-w-3" style={{ maskImage: "url('/SVGs/chevron-right.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/chevron-right.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                  <div className="w-3 h-3 bg-[var(--color-mystic-mint)]/50 min-w-3" style={{ maskImage: "url('/frontend/SVGs/chevron-right.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/chevron-right.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                   {feat}
                 </li>
               ))}

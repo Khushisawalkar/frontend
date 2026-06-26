@@ -1,15 +1,15 @@
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import DashboardMockup from "@/components/DashboardMockup";
-import Pricing from "@/components/Pricing";
+import Background from "@/components/background/Background";
+import CursorGlow from "@/components/common/CursorGlow";
+import Navbar from "@/components/navbar/Navbar";
+import Hero from "@/components/hero/Hero";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen overflow-hidden">
+      <Background />
+      <CursorGlow />
+      <Navbar />
       <Hero />
-      <Features />
-      <DashboardMockup />
-      <Pricing />
     </main>
   );
 }

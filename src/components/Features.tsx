@@ -40,7 +40,7 @@ export default function Features() {
           </p>
           <a href="#" className="text-[#3CB3A5] font-medium flex items-center gap-2 hover:text-[#52e8d6] transition-colors w-max">
             Learn more 
-            <div className="w-4 h-4 bg-current" style={{ maskImage: "url('/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+            <div className="w-4 h-4 bg-current" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
           </a>
         </div>
 
@@ -51,7 +51,7 @@ export default function Features() {
               
               <div className="flex justify-between items-start mb-8">
                 <div className="w-12 h-12 rounded-full border border-[#3CB3A5]/20 flex items-center justify-center bg-[#182329]">
-                  <div className="w-6 h-6 bg-[#3CB3A5]" style={{ maskImage: `url('/SVGs/${feat.icon}')`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: `url('/SVGs/${feat.icon}')`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                  <div className="w-6 h-6 bg-[#3CB3A5]" style={{ maskImage: `url('/frontend/SVGs/${feat.icon}')`, maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: `url('/frontend/SVGs/${feat.icon}')`, WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
                 </div>
                 <span className="font-mono text-sm text-[var(--color-arctic-powder)]/30 font-semibold">{feat.num}</span>
               </div>
@@ -64,7 +64,7 @@ export default function Features() {
               
               <a href="#" className="text-[#3CB3A5] text-sm font-medium flex items-center gap-2 hover:text-[#52e8d6] transition-colors mt-auto w-max">
                 Learn more 
-                <div className="w-3.5 h-3.5 bg-current" style={{ maskImage: "url('/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
+                <div className="w-3.5 h-3.5 bg-current" style={{ maskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", maskSize: "contain", maskRepeat: "no-repeat", maskPosition: "center", WebkitMaskImage: "url('/frontend/SVGs/arrow-trending-up.svg')", WebkitMaskSize: "contain", WebkitMaskRepeat: "no-repeat", WebkitMaskPosition: "center" }} />
               </a>
 
             </div>
