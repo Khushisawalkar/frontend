@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-arctic-powder: #F1F6F4;
+  --color-oceanic-noir: #172B36;
+  --color-nocturnal-expedition: #114C5A;
+  --color-forsythia: #FFC801;
+  --color-deep-saffron: #FF9932;
+  --color-mystic-mint: #D9E8E2;
+
+  --color-background: var(--color-oceanic-noir);
+  --color-foreground: var(--color-arctic-powder);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.03em;
+}
