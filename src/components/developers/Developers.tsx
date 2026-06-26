@@ -7,25 +7,22 @@ import { useState } from "react";
 export default function Developers() {
   const [copied, setCopied] = useState(false);
 
-  const codeSnippet = `import { AetherClient } from '@aetherflow/sdk';
+  const codeSnippet = `import { Aether } from '@aetherflow/core';
 
-// Initialize the edge client
-const client = new AetherClient({
-  apiKey: process.env.AETHER_API_KEY,
+// Initialize the quiet edge client
+const client = new Aether({
+  key: process.env.AETHER_KEY,
   region: 'global-edge'
 });
 
-// Stream telemetry data in sub-milliseconds
+// Stream telemetry softly
 await client.stream.push('cognitive_load', {
-  userId: 'usr_948a7b',
+  user: 'usr_948a7b',
   metrics: {
-    focus: 0.94,
-    fatigue: 0.12,
-    syncRate: '99.99%'
+    calmness: 0.94,
+    fatigue: 0.12
   }
-});
-
-console.log('✅ Telemetry streamed to edge nodes.');`;
+});`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(codeSnippet);
@@ -34,72 +31,68 @@ console.log('✅ Telemetry streamed to edge nodes.');`;
   };
 
   return (
-    <section id="developers" className="relative py-32 overflow-hidden z-10 border-t border-white/5">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#114C5A]/20 blur-[200px] -z-10 rounded-full" />
+    <section id="developers" className="relative py-32 overflow-hidden z-10">
       
-      <div className="section max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div className="section max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-24">
         
         {/* Text Content */}
-        <div className="flex-1">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/80 text-sm font-semibold mb-6 tracking-wide backdrop-blur-md">
-            DEVELOPER EXPERIENCE
+        <div className="flex-1 max-w-xl">
+          <div className="inline-flex items-center gap-3 mb-8">
+            <span className="h-px w-8 bg-white/20" />
+            <span className="text-[13px] font-medium tracking-widest uppercase text-white/60">Developer Experience</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-            Integrate in <span className="text-[#3CB3A5]">Minutes.</span>
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-white/95 leading-tight">
+            Beautifully <br />
+            <span className="text-white/60 italic font-serif">simple integration.</span>
           </h2>
-          <p className="text-white/60 text-lg mb-8 leading-relaxed">
-            Our Typescript SDK is built for modern edge runtimes. No bloated dependencies, just pure performance. Connect your telemetry streams globally with 3 lines of code.
+          <p className="text-[17px] text-white/50 leading-relaxed font-light mb-10">
+            Our SDK is designed with intense restraint. No bloated dependencies, no complex configuration. Just pure, elegant connection to the edge.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/get-started" className="flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
-              Read the Docs <ArrowRight size={16} />
-            </Link>
-            <Link href="https://github.com/Khushisawalkar" target="_blank" className="flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-6 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">
-              View on GitHub
+          <div className="flex flex-col sm:flex-row gap-5">
+            <Link href="/get-started" className="flex items-center justify-center gap-3 bg-white text-[#172B36] px-8 py-4 rounded-full text-[15px] font-medium transition-transform duration-500 hover:scale-[1.02] shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
+              Read the documentation <ArrowRight size={16} />
             </Link>
           </div>
         </div>
 
-        {/* Code Terminal */}
-        <div className="flex-1 w-full max-w-2xl relative group">
-          {/* Glow effect behind terminal */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#FFC801] to-[#3CB3A5] rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
+        {/* Soft Glass Terminal */}
+        <div className="flex-1 w-full relative">
+          {/* Gentle ambient glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#114C5A]/10 blur-[100px] rounded-full animate-breathe-slow -z-10" />
           
-          <div className="relative rounded-3xl bg-[#091014] border border-white/10 overflow-hidden shadow-2xl">
+          <div className="relative rounded-[2.5rem] bg-white/[0.02] border border-white/5 overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.2)] backdrop-blur-2xl">
             {/* Terminal Header */}
-            <div className="flex items-center justify-between px-6 py-4 bg-white/5 border-b border-white/10">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <div className="flex items-center justify-between px-8 py-6 border-b border-white/5">
+              <div className="flex gap-2.5">
+                <div className="w-3 h-3 rounded-full bg-white/10" />
+                <div className="w-3 h-3 rounded-full bg-white/10" />
+                <div className="w-3 h-3 rounded-full bg-white/10" />
               </div>
-              <div className="text-white/40 text-xs font-mono">stream.ts</div>
-              <button onClick={copyToClipboard} className="text-white/40 hover:text-white transition-colors">
-                {copied ? <Check size={16} className="text-[#3CB3A5]" /> : <Copy size={16} />}
+              <div className="text-white/30 text-[11px] font-medium tracking-widest uppercase">stream.ts</div>
+              <button onClick={copyToClipboard} className="text-white/30 hover:text-white transition-colors duration-300">
+                {copied ? <Check size={16} /> : <Copy size={16} />}
               </button>
             </div>
             
-            {/* Code Content */}
-            <div className="p-6 overflow-x-auto">
-              <pre className="font-mono text-sm leading-loose">
+            {/* Code Content - JetBrains Mono used elegantly */}
+            <div className="p-8 md:p-12 overflow-x-auto">
+              <pre className="font-mono text-[14px] leading-[2.2] tracking-wide">
                 <code className="text-white/80">
-                  <span className="text-[#FF9932]">import</span> {'{ AetherClient }'} <span className="text-[#FF9932]">from</span> <span className="text-[#3CB3A5]">'@aetherflow/sdk'</span>;<br/><br/>
-                  <span className="text-white/30">{'// Initialize the edge client'}</span><br/>
-                  <span className="text-[#FF9932]">const</span> client = <span className="text-[#FF9932]">new</span> <span className="text-[#FFC801]">AetherClient</span>({`{`}<br/>
-                  {'  '}apiKey: process.env.<span className="text-white">AETHER_API_KEY</span>,<br/>
-                  {'  '}region: <span className="text-[#3CB3A5]">'global-edge'</span><br/>
+                  <span className="text-[#D9E8E2]/60 italic">import</span> {'{ Aether }'} <span className="text-[#D9E8E2]/60 italic">from</span> <span className="text-white/40">'@aetherflow/core'</span>;<br/><br/>
+                  <span className="text-white/20 italic font-light">{'// Initialize the quiet edge client'}</span><br/>
+                  <span className="text-[#D9E8E2]/60 italic">const</span> client = <span className="text-[#D9E8E2]/60 italic">new</span> Aether({`{`}<br/>
+                  {'  '}key: process.env.AETHER_KEY,<br/>
+                  {'  '}region: <span className="text-white/40">'global-edge'</span><br/>
                   {`}`});<br/><br/>
-                  <span className="text-white/30">{'// Stream telemetry data in sub-milliseconds'}</span><br/>
-                  <span className="text-[#FF9932]">await</span> client.stream.<span className="text-[#FFC801]">push</span>(<span className="text-[#3CB3A5]">'cognitive_load'</span>, {`{`}<br/>
-                  {'  '}userId: <span className="text-[#3CB3A5]">'usr_948a7b'</span>,<br/>
+                  <span className="text-white/20 italic font-light">{'// Stream telemetry softly'}</span><br/>
+                  <span className="text-[#D9E8E2]/60 italic">await</span> client.stream.push(<span className="text-white/40">'cognitive_load'</span>, {`{`}<br/>
+                  {'  '}user: <span className="text-white/40">'usr_948a7b'</span>,<br/>
                   {'  '}metrics: {`{`}<br/>
-                  {'    '}focus: <span className="text-[#FF9932]">0.94</span>,<br/>
-                  {'    '}fatigue: <span className="text-[#FF9932]">0.12</span>,<br/>
-                  {'    '}syncRate: <span className="text-[#3CB3A5]">'99.99%'</span><br/>
+                  {'    '}calmness: <span className="text-white/80">0.94</span>,<br/>
+                  {'    '}fatigue: <span className="text-white/80">0.12</span><br/>
                   {'  }'}<br/>
-                  {`}`});<br/><br/>
-                  <span className="text-white/80">console.<span className="text-[#FFC801]">log</span>(<span className="text-[#3CB3A5]">'✅ Telemetry streamed to edge nodes.'</span>);</span>
+                  {`}`});
                 </code>
               </pre>
             </div>

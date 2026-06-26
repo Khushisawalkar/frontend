@@ -1,63 +1,111 @@
 "use client";
 
-import { ArrowRight, Play } from "lucide-react";
-import AICore from "./AICore";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
-  return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-32">
+  const illustrationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!illustrationRef.current || window.innerWidth < 768) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 15;
+      const y = (e.clientY / window.innerHeight - 0.5) * 15;
       
-      {/* Background Architectural Core */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 opacity-40 scale-125 pointer-events-none mix-blend-screen">
-        <AICore />
-      </div>
+      illustrationRef.current.style.transform = `translate(${x}px, ${y}px)`;
+    };
+    
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-      {/* Foreground Typography Centered */}
-      <div className="section relative z-10 flex flex-col items-center text-center">
+  return (
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+      
+      <div className="section w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-        <span className="mono inline-flex rounded-full border border-[#FFC801]/25 bg-[#FFC801]/10 px-5 py-2 text-sm text-[#FFC801] shadow-[0_0_20px_rgba(255,200,1,0.2)]">
-          AI Infrastructure • Enterprise Ready
-        </span>
+        {/* LEFT: Typography & Storytelling */}
+        <div className="flex flex-col items-start max-w-2xl animate-fade-in">
+          
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D9E8E2] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D9E8E2]"></span>
+            </span>
+            <span className="text-[13px] font-medium tracking-wide text-white/80">AetherFlow Intelligence is live</span>
+          </div>
 
-        <h1 className="mt-8 max-w-4xl text-5xl font-black leading-[1.05] md:text-[5rem] tracking-tight">
-          Automate
-          <span className="gradient-text mx-4">Intelligent</span><br/>
-          Workflows with Enterprise AI
-        </h1>
+          <h1 className="text-[3.5rem] md:text-[5rem] font-medium leading-[1.05] tracking-tight mb-8 text-white/95">
+            Orchestrate <br className="hidden md:block" />
+            <span className="text-white/60">the future of</span> <br className="hidden md:block" />
+            automation.
+          </h1>
 
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70 font-light">
-          Design, deploy and scale AI-powered automation using a modern
-          orchestration platform engineered for developers, startups and
-          enterprise teams.
-        </p>
+          <p className="text-[17px] md:text-[19px] leading-[1.6] text-white/50 font-normal mb-10 max-w-xl">
+            A sanctuary for your data streams. We provide the silent, powerful infrastructure that allows your artificial intelligence to breathe, scale, and connect without friction.
+          </p>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-5">
-          <Link href="/get-started" className="group relative overflow-hidden flex items-center gap-3 rounded-full bg-[#FFC801] px-8 py-4 font-semibold text-[#172B36] transition duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,200,1,.4)]">
-            <span className="relative z-10">Start Building</span>
-            <ArrowRight size={18} className="relative z-10 transition group-hover:translate-x-1" />
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <Link 
+              href="/get-started" 
+              className="group flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-[#172B36] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,255,255,0.15)]"
+            >
+              Start building
+            </Link>
+            <Link 
+              href="/demo" 
+              className="group flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/15 px-8 text-[15px] font-medium text-white transition-all duration-500 hover:bg-white/5"
+            >
+              Watch the film <ArrowRight size={16} className="text-white/50 group-hover:translate-x-1 group-hover:text-white transition-all duration-500" />
+            </Link>
+          </div>
 
-          <Link href="/demo" className="secondary-btn flex items-center gap-3 bg-[#172B36]/50 backdrop-blur-md">
-            <Play size={18} />
-            Live Demo
-          </Link>
         </div>
 
-        {/* Stats */}
-        <div className="mt-24 grid grid-cols-3 gap-16 border-t border-white/10 pt-12 w-full max-w-4xl">
-          <div className="flex flex-col items-center">
-            <h3 className="mono text-4xl text-[#FFC801]">99.99%</h3>
-            <p className="mt-2 text-sm text-white/50 uppercase tracking-widest">Platform Availability</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <h3 className="mono text-4xl text-[#FFC801]">120+</h3>
-            <p className="mt-2 text-sm text-white/50 uppercase tracking-widest">AI Integrations</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <h3 className="mono text-4xl text-[#FFC801]">24/7</h3>
-            <p className="mt-2 text-sm text-white/50 uppercase tracking-widest">Monitoring</p>
+        {/* RIGHT: Abstract Pluffymaid Illustration */}
+        <div className="relative w-full h-[600px] hidden lg:flex items-center justify-center animate-fade-in-delayed">
+          <div ref={illustrationRef} className="relative w-full h-full transition-transform duration-[1000ms] ease-out">
+            
+            {/* Soft Glass Core */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[460px] rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] flex flex-col items-center justify-between p-8 overflow-hidden z-20 animate-float">
+               
+               {/* Abstract Geometry */}
+               <div className="w-full flex justify-between items-center opacity-40">
+                 <div className="w-2 h-2 rounded-full bg-white/50" />
+                 <div className="h-[1px] flex-1 mx-4 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                 <div className="text-[10px] font-mono tracking-widest uppercase">Sync</div>
+               </div>
+
+               {/* Central Orb */}
+               <div className="relative w-32 h-32 flex items-center justify-center">
+                 <div className="absolute inset-0 rounded-full border border-[#D9E8E2]/20 animate-[spin_10s_linear_infinite]" />
+                 <div className="absolute inset-2 rounded-full border border-[#D9E8E2]/10 animate-[spin_15s_linear_infinite_reverse]" />
+                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#114C5A] to-transparent shadow-[inset_0_0_20px_rgba(255,255,255,0.1)] backdrop-blur-md animate-breathe-slow" />
+               </div>
+
+               {/* Soft Data Waves */}
+               <div className="w-full space-y-4 opacity-50">
+                 <div className="h-1.5 w-full rounded-full bg-white/5 overflow-hidden">
+                   <div className="h-full w-2/3 bg-gradient-to-r from-transparent to-[#D9E8E2]/40 rounded-full animate-float-gentle" />
+                 </div>
+                 <div className="h-1.5 w-full rounded-full bg-white/5 overflow-hidden">
+                   <div className="h-full w-1/3 bg-gradient-to-r from-transparent to-[#D9E8E2]/40 rounded-full animate-float-gentle" style={{ animationDelay: '1s' }} />
+                 </div>
+               </div>
+
+            </div>
+
+            {/* Orbiting Glass Elements */}
+            <div className="absolute top-[10%] right-[10%] w-32 h-32 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl shadow-2xl z-30 animate-float-gentle flex items-center justify-center" style={{ animationDelay: '1.5s' }}>
+              <div className="w-8 h-8 rounded-full border border-[#FFC801]/30 bg-[#FFC801]/10" />
+            </div>
+
+            <div className="absolute bottom-[20%] left-[5%] w-40 h-24 rounded-2xl border border-white/5 bg-[#114C5A]/20 backdrop-blur-xl shadow-2xl z-10 animate-float flex flex-col justify-center px-6" style={{ animationDelay: '0.5s' }}>
+               <div className="w-1/2 h-1 rounded-full bg-white/20 mb-2" />
+               <div className="w-3/4 h-1 rounded-full bg-white/10" />
+            </div>
+
           </div>
         </div>
 

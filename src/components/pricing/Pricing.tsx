@@ -18,7 +18,7 @@ const plans = [
   {
     id: "hobby",
     name: "Hobby",
-    description: "Perfect for testing and small side projects.",
+    description: "Quiet spaces for testing and small side projects.",
     features: ["100k events/month", "Standard routing", "Community support", "48-hour data retention"],
     cta: "Start Free",
     popular: false,
@@ -26,7 +26,7 @@ const plans = [
   {
     id: "pro",
     name: "Pro",
-    description: "For teams building production-ready AI apps.",
+    description: "For teams crafting production-ready AI experiences.",
     features: ["50M events/month", "Adaptive routing AI", "Priority email support", "30-day data retention", "Custom domains"],
     cta: "Get Started",
     popular: true,
@@ -34,7 +34,7 @@ const plans = [
   {
     id: "enterprise",
     name: "Enterprise",
-    description: "Dedicated infrastructure for extreme scale.",
+    description: "Dedicated, private infrastructure for extreme scale.",
     features: ["Unlimited events", "Dedicated clusters", "24/7 Slack support", "Infinite data retention", "VPC Peering & SSO"],
     cta: "Contact Sales",
     popular: false,
@@ -64,17 +64,13 @@ export default function Pricing() {
         if (node) {
           const baseRate = pricingMatrix.baseRates[plan.id as keyof typeof pricingMatrix.baseRates];
           const finalPrice = (baseRate * multiplier * tariff.rate).toFixed(0);
-          
-          // Zero-Render DOM Manipulation Constraint
           node.textContent = `${tariff.symbol}${finalPrice}`;
         }
       });
     };
 
-    // Initial setup
     updatePrices();
 
-    // Attach native event listeners to prevent React state re-renders
     billingToggle?.addEventListener('change', updatePrices);
     currencySelect?.addEventListener('change', updatePrices);
 
@@ -85,38 +81,42 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" className="relative py-32 overflow-hidden z-10 border-t border-white/5 bg-[#091014]/50">
+    <section id="pricing" className="relative py-40 overflow-hidden z-10">
       <div className="section max-w-7xl mx-auto px-6">
         
-        <div className="mb-16 text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-            Predictable <span className="text-[#3CB3A5]">Pricing</span>
+        {/* Editorial Header */}
+        <div className="mb-24 text-center max-w-2xl mx-auto">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-white/95 leading-tight">
+            Transparent, <br />
+            <span className="text-white/60 italic font-serif">graceful pricing.</span>
           </h2>
-          <p className="text-white/60 text-lg leading-relaxed mb-10">
-            Stop guessing your infrastructure costs. Simple, transparent pricing that scales automatically with your usage.
+          <p className="text-[17px] text-white/50 leading-relaxed font-light">
+            No hidden fees. No sudden spikes. Just a calm, predictable structure that scales quietly alongside your growth.
           </p>
 
-          {/* Pricing Controls (No React State here) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 bg-[#172B36]/50 p-4 rounded-2xl border border-white/10 max-w-lg mx-auto backdrop-blur-md">
+          {/* Pluffymaid Pricing Controls */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 bg-white/[0.02] p-3 rounded-full border border-white/5 max-w-[480px] mx-auto backdrop-blur-xl">
             
-            <div className="flex items-center gap-3">
-              <span className="text-white/80 font-semibold text-sm">Monthly</span>
+            <div className="flex items-center gap-4 px-4">
+              <span className="text-white/60 font-medium text-[14px]">Monthly</span>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" ref={billingToggleRef} className="sr-only peer" />
-                <div className="w-14 h-7 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#FFC801]"></div>
+                <div className="w-12 h-6 bg-white/5 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white/80 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-white/20"></div>
               </label>
-              <span className="text-white/80 font-semibold text-sm flex items-center gap-2">
-                 Annual <span className="text-xs bg-[#FFC801]/20 text-[#FFC801] px-2 py-0.5 rounded-full">-20%</span>
+              <span className="text-white/60 font-medium text-[14px] flex items-center gap-2">
+                 Annual <span className="text-[10px] font-bold tracking-wider uppercase bg-[#114C5A] text-[#D9E8E2] px-2 py-0.5 rounded-full">Save 20%</span>
               </span>
             </div>
 
-            <div className="w-px h-8 bg-white/10 hidden sm:block" />
+            <div className="w-px h-6 bg-white/10 hidden sm:block" />
 
-            <select ref={currencySelectRef} className="bg-transparent border border-white/20 text-white rounded-lg px-3 py-1.5 outline-none focus:border-[#3CB3A5] font-semibold appearance-none cursor-pointer">
-              <option value="USD">USD ($)</option>
-              <option value="EUR">EUR (€)</option>
-              <option value="INR">INR (₹)</option>
-            </select>
+            <div className="relative pr-4">
+              <select ref={currencySelectRef} className="bg-transparent text-white/80 text-[14px] font-medium outline-none appearance-none cursor-pointer">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="INR">INR (₹)</option>
+              </select>
+            </div>
 
           </div>
         </div>
@@ -126,37 +126,39 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div 
               key={plan.name}
-              className={`relative rounded-3xl p-8 flex flex-col group transition-all duration-[400ms] ease-in-out hover:-translate-y-4 ${
+              className={`relative rounded-[2.5rem] p-10 flex flex-col group transition-all duration-[800ms] ease-out ${
                 plan.popular 
-                  ? "bg-[#172B36] border border-[#FFC801]/50 shadow-[0_0_40px_rgba(255,200,1,0.15)] md:-translate-y-4 md:hover:-translate-y-8 z-10" 
-                  : "bg-[#172B36]/40 border border-white/10 hover:border-white/20 hover:bg-[#172B36]/60"
+                  ? "bg-white/[0.04] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.2)] md:-translate-y-4 hover:-translate-y-6 z-10" 
+                  : "bg-white/[0.01] border border-white/5 hover:border-white/10 hover:bg-white/[0.02] hover:-translate-y-2"
               }`}
             >
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#FFC801] text-black px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(255,200,1,0.5)]">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#172B36] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl">
                   Most Popular
                 </div>
               )}
 
-              <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-              <p className="text-white/50 text-sm mb-6 h-10">{plan.description}</p>
+              <h3 className="text-[22px] font-medium mb-3 text-white/90">{plan.name}</h3>
+              <p className="text-white/50 text-[15px] font-light mb-8 h-12 leading-relaxed">{plan.description}</p>
               
-              <div className="flex items-baseline gap-1 mb-8">
+              <div className="flex items-baseline gap-1 mb-10 pb-10 border-b border-white/5">
                 <span 
                   ref={el => { priceNodesRef.current[plan.id] = el; }} 
-                  className="text-5xl font-black text-white"
+                  className="text-[3.5rem] font-light text-white/95 tracking-tight"
                 >
                   $0
                 </span>
-                <span className="text-white/50">/mo</span>
+                <span className="text-white/40 font-light text-lg">/mo</span>
               </div>
 
               <div className="flex-1">
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-5 mb-12">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check size={18} className={plan.popular ? "text-[#FFC801]" : "text-[#3CB3A5]"} />
-                      <span className="text-white/80 text-sm">{feature}</span>
+                    <li key={feature} className="flex items-start gap-4">
+                      <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center ${plan.popular ? "bg-[#D9E8E2]/20 text-[#D9E8E2]" : "bg-white/5 text-white/40"}`}>
+                        <Check size={10} strokeWidth={3} />
+                      </div>
+                      <span className="text-white/60 text-[15px] font-light">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -164,10 +166,10 @@ export default function Pricing() {
 
               <Link 
                 href="/get-started" 
-                className={`w-full py-4 rounded-full font-bold text-center transition-all ${
+                className={`w-full py-4 rounded-full text-[15px] font-medium text-center transition-all duration-500 ${
                   plan.popular 
-                    ? "bg-[#FFC801] text-black hover:scale-105 shadow-[0_0_20px_rgba(255,200,1,0.3)]" 
-                    : "bg-white/5 text-white hover:bg-white/10 border border-white/10"
+                    ? "bg-white text-[#172B36] hover:scale-[1.02] shadow-[0_10px_20px_rgba(255,255,255,0.1)]" 
+                    : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
                 }`}
               >
                 {plan.cta}

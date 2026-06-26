@@ -5,77 +5,93 @@ import Link from "next/link";
 
 export default function Solutions() {
   return (
-    <section id="solutions" className="relative py-32 overflow-hidden z-10 border-t border-white/5">
+    <section id="solutions" className="relative py-32 overflow-hidden z-10">
       <div className="section max-w-7xl mx-auto px-6">
         
-        <div className="mb-24 text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
-            Built for <span className="text-[#FFC801]">Every Stage</span>
+        {/* Editorial Header */}
+        <div className="mb-32 text-center max-w-3xl mx-auto">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-white/95 leading-tight">
+            Designed for <br />
+            <span className="text-white/60 italic font-serif">every stage of growth.</span>
           </h2>
-          <p className="text-white/60 text-lg leading-relaxed">
-            Whether you're a hyper-growth startup or a Fortune 500 enterprise, AetherFlow adapts to your architectural requirements.
+          <p className="text-[17px] text-white/50 leading-relaxed font-light">
+            Whether you are establishing your first intelligent pipeline or scaling across global clusters, the architecture adapts with quiet precision.
           </p>
         </div>
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-32">
           
           {/* Enterprise */}
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="flex-1 order-2 md:order-1 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#114C5A]/40 to-transparent blur-3xl -z-10" />
-              <div className="w-full h-80 rounded-3xl bg-[#172B36]/60 border border-white/10 flex items-center justify-center p-8 relative overflow-hidden group hover:border-[#3CB3A5]/50 transition-colors">
-                 {/* Security Shield Mockup */}
-                 <div className="w-32 h-40 border border-[#3CB3A5]/50 flex flex-col items-center justify-center bg-[#3CB3A5]/10 rounded-xl relative shadow-[0_0_30px_rgba(60,179,165,0.2)] group-hover:scale-110 transition-transform duration-500">
-                   <div className="w-12 h-12 bg-[#3CB3A5] mb-4" style={{ maskImage: "url('/frontend/SVGs/cube-16-solid.svg')", maskSize: "contain", WebkitMaskImage: "url('/frontend/SVGs/cube-16-solid.svg')", WebkitMaskSize: "contain" }} />
-                   <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#3CB3A5] to-transparent absolute bottom-0 left-0 animate-[shimmer_2s_infinite]" />
+          <div className="flex flex-col md:flex-row items-center gap-20 group">
+            <div className="flex-1 order-2 md:order-1 relative w-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#114C5A]/10 to-transparent blur-3xl -z-10 rounded-full animate-breathe-slow" />
+              
+              <div className="w-full aspect-[4/3] rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-center p-8 relative overflow-hidden backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-1000 group-hover:scale-[1.02]">
+                 
+                 {/* Soft Glass Composition */}
+                 <div className="relative w-48 h-56 rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-md shadow-2xl flex flex-col p-6 overflow-hidden animate-float">
+                    <div className="w-10 h-10 rounded-full bg-[#114C5A]/30 flex items-center justify-center mb-auto">
+                      <div className="w-3 h-3 rounded-full bg-[#D9E8E2]" />
+                    </div>
+                    <div className="space-y-3 opacity-60">
+                      <div className="h-1.5 w-full bg-white/20 rounded-full" />
+                      <div className="h-1.5 w-2/3 bg-white/10 rounded-full" />
+                    </div>
                  </div>
-                 <div className="absolute right-10 top-1/2 -translate-y-1/2 w-48 space-y-3 opacity-50 group-hover:opacity-100 transition-opacity">
-                   <div className="h-2 w-full bg-white/10 rounded-full" />
-                   <div className="h-2 w-3/4 bg-white/10 rounded-full" />
-                   <div className="h-2 w-5/6 bg-[#3CB3A5]/50 rounded-full" />
-                 </div>
+
+                 {/* Floating accents */}
+                 <div className="absolute right-[15%] top-[20%] w-16 h-16 rounded-full border border-white/5 bg-[#172B36]/50 backdrop-blur-sm animate-float-gentle" style={{ animationDelay: '1s' }} />
+
               </div>
             </div>
+            
             <div className="flex-1 order-1 md:order-2">
-              <div className="inline-block px-4 py-1.5 rounded-full border border-[#3CB3A5]/30 bg-[#3CB3A5]/10 text-[#3CB3A5] text-sm font-semibold mb-6 tracking-wide">ENTERPRISE READY</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Military-Grade Security & Isolation</h3>
-              <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                Single-tenant clusters, VPC peering, and strict RBAC controls. We ensure your proprietary AI models and data never leave your secure perimeter.
+              <div className="inline-flex items-center gap-3 mb-8">
+                <span className="h-px w-8 bg-white/20" />
+                <span className="text-[13px] font-medium tracking-widest uppercase text-white/60">Enterprise</span>
+              </div>
+              <h3 className="text-3xl font-medium mb-6 tracking-tight text-white/90 leading-snug">
+                Absolute security, <br /> seamlessly integrated.
+              </h3>
+              <p className="text-[16px] text-white/50 mb-10 leading-relaxed font-light">
+                Single-tenant environments and VPC peering ensure that your proprietary models remain deeply isolated, without compromising on orchestration velocity.
               </p>
-              <Link href="/get-started" className="flex items-center gap-2 text-white hover:text-[#3CB3A5] transition-colors font-semibold group">
-                Explore Enterprise <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <Link href="/get-started" className="inline-flex items-center gap-3 text-[15px] font-medium text-white hover:text-white/70 transition-colors group/link">
+                Explore Enterprise <ArrowRight size={16} className="transition-transform duration-500 group-hover/link:translate-x-2" />
               </Link>
             </div>
           </div>
 
           {/* Startups */}
-          <div className="flex flex-col md:flex-row items-center gap-16">
+          <div className="flex flex-col md:flex-row items-center gap-20 group">
             <div className="flex-1">
-              <div className="inline-block px-4 py-1.5 rounded-full border border-[#FF9932]/30 bg-[#FF9932]/10 text-[#FF9932] text-sm font-semibold mb-6 tracking-wide">HYPER-GROWTH STARTUPS</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Scale from Zero to Petabytes</h3>
-              <p className="text-white/60 text-lg mb-8 leading-relaxed">
-                Don't overprovision. Our serverless orchestration layer instantly scales compute nodes based on real-time pipeline demand, saving you thousands in idle costs.
+              <div className="inline-flex items-center gap-3 mb-8">
+                <span className="h-px w-8 bg-white/20" />
+                <span className="text-[13px] font-medium tracking-widest uppercase text-white/60">Startups</span>
+              </div>
+              <h3 className="text-3xl font-medium mb-6 tracking-tight text-white/90 leading-snug">
+                Fluid scale, <br /> from zero to infinity.
+              </h3>
+              <p className="text-[16px] text-white/50 mb-10 leading-relaxed font-light">
+                Our serverless orchestration layer breathes with your application. It scales compute nodes softly in the background, matching your real-time demand effortlessly.
               </p>
-              <Link href="/get-started" className="flex items-center gap-2 text-white hover:text-[#FF9932] transition-colors font-semibold group">
-                View Startup Plans <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <Link href="/get-started" className="inline-flex items-center gap-3 text-[15px] font-medium text-white hover:text-white/70 transition-colors group/link">
+                View Plans <ArrowRight size={16} className="transition-transform duration-500 group-hover/link:translate-x-2" />
               </Link>
             </div>
-            <div className="flex-1 relative">
-              <div className="absolute inset-0 bg-gradient-to-l from-[#FF9932]/20 to-transparent blur-3xl -z-10" />
-              <div className="w-full h-80 rounded-3xl bg-[#172B36]/60 border border-white/10 flex items-center justify-center p-8 relative overflow-hidden group hover:border-[#FF9932]/50 transition-colors">
-                 {/* Scale Chart Mockup */}
-                 <div className="absolute bottom-0 left-0 w-full h-1/2 flex items-end justify-between px-8 opacity-40 group-hover:opacity-100 transition-opacity duration-700">
-                    {[3,5,4,7,6,9,12,10,16].map((h, i) => (
-                      <div key={i} className="w-8 bg-gradient-to-t from-[#FF9932] to-transparent rounded-t-md animate-pulse" style={{ height: `${h * 10}%`, animationDelay: `${i * 0.1}s` }} />
-                    ))}
+            
+            <div className="flex-1 relative w-full">
+              <div className="absolute inset-0 bg-gradient-to-l from-[#FFC801]/5 to-transparent blur-3xl -z-10 rounded-full animate-breathe-slower" />
+              
+              <div className="w-full aspect-[4/3] rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-center p-8 relative overflow-hidden backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-transform duration-1000 group-hover:scale-[1.02]">
+                 
+                 {/* Soft Chart Composition */}
+                 <div className="relative w-56 p-8 rounded-3xl border border-white/10 bg-gradient-to-b from-[#114C5A]/10 to-transparent backdrop-blur-md shadow-2xl flex flex-col items-center animate-float">
+                   <div className="text-[11px] font-mono tracking-widest text-white/40 mb-4">ACTIVE NODES</div>
+                   <div className="text-5xl font-light text-white/90 mb-2">4k</div>
+                   <div className="text-[13px] text-[#FFC801]/70 font-medium">+ Seamlessly adapting</div>
                  </div>
-                 <div className="relative z-10 w-56 p-6 rounded-2xl bg-[#091014]/80 border border-white/10 backdrop-blur-xl shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
-                   <p className="text-white/40 text-xs uppercase mb-2 tracking-widest font-semibold">Active Nodes</p>
-                   <p className="text-4xl font-mono text-[#FF9932] animate-pulse">4,096</p>
-                   <div className="mt-4 flex items-center gap-2 text-xs text-[#3CB3A5]">
-                     <ArrowRight size={12} className="-rotate-45" /> +124% Spike handled
-                   </div>
-                 </div>
+
               </div>
             </div>
           </div>
