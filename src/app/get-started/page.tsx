@@ -26,7 +26,7 @@ export default function GetStarted() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // <-- PASTE YOUR FREE KEY HERE
+          access_key: "f5c0c2e7-edac-4c2e-973b-d81e0a680596", // Integrated Web3Forms Key
           email: email,
           subject: "New Access Request for AetherFlow",
           from_name: "AetherFlow Landing Page",
