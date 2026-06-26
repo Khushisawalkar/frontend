@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 
 const pricingMatrix = {
-  baseRates: { hobby: 19, pro: 49, enterprise: 199 },
+  baseRates: { hobby: 0, pro: 0, enterprise: 0 },
   multipliers: { monthly: 1, annual: 0.8 },
   tariffs: {
     USD: { rate: 1, symbol: "$" },
