@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const navLinks = [
   { title: "Solutions", href: "#solutions" },
@@ -56,13 +57,12 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
         <div className="hidden lg:flex">
-          <button className="group relative overflow-hidden flex items-center gap-3 rounded-full bg-[#FFC801] px-6 py-2.5 font-semibold text-[#172B36] transition duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,200,1,.35)]">
+          <Link href="/get-started" className="group relative overflow-hidden flex items-center gap-3 rounded-full bg-[#FFC801] px-6 py-2.5 font-semibold text-[#172B36] transition duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,200,1,.35)]">
             <span className="relative z-10">Get Started</span>
             <ArrowUpRight size={18} className="relative z-10 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -85,9 +85,9 @@ export default function Navbar() {
                 {item.title}
               </a>
             ))}
-            <button className="mt-4 rounded-full bg-[#FFC801] py-4 font-semibold text-[#172B36]">
+            <Link href="/get-started" onClick={() => setOpen(false)} className="mt-4 rounded-full bg-[#FFC801] py-4 text-center font-semibold text-[#172B36] block">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       )}

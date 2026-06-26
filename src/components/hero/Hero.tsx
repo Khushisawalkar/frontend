@@ -2,6 +2,7 @@
 
 import { ArrowRight, Play } from "lucide-react";
 import AICore from "./AICore";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -32,16 +33,16 @@ export default function Hero() {
         </p>
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
-          <button className="group relative overflow-hidden flex items-center gap-3 rounded-full bg-[#FFC801] px-8 py-4 font-semibold text-[#172B36] transition duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,200,1,.4)]">
+          <Link href="/get-started" className="group relative overflow-hidden flex items-center gap-3 rounded-full bg-[#FFC801] px-8 py-4 font-semibold text-[#172B36] transition duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,200,1,.4)]">
             <span className="relative z-10">Start Building</span>
             <ArrowRight size={18} className="relative z-10 transition group-hover:translate-x-1" />
             <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
-          </button>
+          </Link>
 
-          <button className="secondary-btn flex items-center gap-3 bg-[#172B36]/50 backdrop-blur-md">
+          <Link href="/demo" className="secondary-btn flex items-center gap-3 bg-[#172B36]/50 backdrop-blur-md">
             <Play size={18} />
             Live Demo
-          </button>
+          </Link>
         </div>
 
         {/* Stats */}
