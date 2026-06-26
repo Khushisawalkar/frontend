@@ -6,6 +6,7 @@ import Features from "@/components/features/Features";
 import Solutions from "@/components/solutions/Solutions";
 import Developers from "@/components/developers/Developers";
 import Pricing from "@/components/pricing/Pricing";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Features />
       <Developers />
       <Pricing />
+      <Footer />
     </main>
   );
 }

@@ -7,14 +7,24 @@ import { useEffect, useRef } from "react";
 const pricingMatrix = {
   baseRates: { hobby: 19, pro: 49, enterprise: 199 },
   multipliers: { monthly: 1, annual: 0.8 },
-  tariffs: { 
-    USD: { rate: 1, symbol: "$" }, 
-    EUR: { rate: 0.92, symbol: "€" }, 
-    INR: { rate: 83, symbol: "₹" } 
-  }
+  tariffs: {
+    USD: { rate: 1, symbol: "$" },
+    EUR: { rate: 0.92, symbol: "€" },
+    INR: { rate: 83, symbol: "₹" },
+  },
 };
 
-const plans = [
+type Currency = keyof typeof pricingMatrix.tariffs;
+type PlanId = keyof typeof pricingMatrix.baseRates;
+
+const plans: {
+  id: PlanId;
+  name: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+}[] = [
   {
     id: "hobby",
     name: "Hobby",
@@ -54,7 +64,7 @@ export default function Pricing() {
       if (!billingToggle || !currencySelect) return;
 
       const isAnnual = billingToggle.checked;
-      const currency = currencySelect.value as "USD" | "EUR" | "INR";
+      const currency = currencySelect.value as Currency;
       
       const multiplier = isAnnual ? pricingMatrix.multipliers.annual : pricingMatrix.multipliers.monthly;
       const tariff = pricingMatrix.tariffs[currency];
@@ -62,13 +72,14 @@ export default function Pricing() {
       plans.forEach(plan => {
         const node = priceNodesRef.current[plan.id];
         if (node) {
-          const baseRate = pricingMatrix.baseRates[plan.id as keyof typeof pricingMatrix.baseRates];
-          const finalPrice = (baseRate * multiplier * tariff.rate).toFixed(0);
+          const baseRate = pricingMatrix.baseRates[plan.id];
+          const finalPrice = Math.round(baseRate * multiplier * tariff.rate);
           node.textContent = `${tariff.symbol}${finalPrice}`;
         }
       });
     };
 
+    // Initial render setup
     updatePrices();
 
     billingToggle?.addEventListener('change', updatePrices);
@@ -83,7 +94,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative py-40 overflow-hidden z-10">
       <div className="section max-w-7xl mx-auto px-6">
-        
+
         {/* Editorial Header */}
         <div className="mb-24 text-center max-w-2xl mx-auto">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium mb-6 tracking-tight text-arctic/95 leading-tight">
@@ -94,13 +105,17 @@ export default function Pricing() {
             No hidden fees. No sudden spikes. Just a calm, predictable structure that scales quietly alongside your growth.
           </p>
 
-          {/* Pluffymaid Pricing Controls */}
+          {/* Pricing Controls */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 bg-arctic/[0.02] p-3 rounded-full border border-arctic/5 max-w-[480px] mx-auto backdrop-blur-xl">
-            
+
             <div className="flex items-center gap-4 px-4">
               <span className="text-arctic/60 font-medium text-[14px]">Monthly</span>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" ref={billingToggleRef} className="sr-only peer" />
+                <input
+                  type="checkbox"
+                  ref={billingToggleRef}
+                  className="sr-only peer"
+                />
                 <div className="w-12 h-6 bg-arctic/5 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-arctic/80 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-arctic/20"></div>
               </label>
               <span className="text-arctic/60 font-medium text-[14px] flex items-center gap-2">
@@ -111,7 +126,10 @@ export default function Pricing() {
             <div className="w-px h-6 bg-arctic/10 hidden sm:block" />
 
             <div className="relative pr-4">
-              <select ref={currencySelectRef} className="bg-transparent text-arctic/80 text-[14px] font-medium outline-none appearance-none cursor-pointer">
+              <select
+                ref={currencySelectRef}
+                className="bg-transparent text-arctic/80 text-[14px] font-medium outline-none appearance-none cursor-pointer"
+              >
                 <option value="USD">USD ($)</option>
                 <option value="EUR">EUR (€)</option>
                 <option value="INR">INR (₹)</option>
@@ -122,13 +140,13 @@ export default function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
-          
+
           {plans.map((plan) => (
-            <div 
+            <div
               key={plan.name}
               className={`relative rounded-[2.5rem] p-10 flex flex-col group transition-all duration-[800ms] ease-out ${
-                plan.popular 
-                  ? "bg-arctic/[0.04] border border-arctic/10 shadow-[0_40px_80px_rgba(0,0,0,0.2)] md:-translate-y-4 hover:-translate-y-6 z-10" 
+                plan.popular
+                  ? "bg-arctic/[0.04] border border-arctic/10 shadow-[0_40px_80px_rgba(0,0,0,0.2)] md:-translate-y-4 hover:-translate-y-6 z-10"
                   : "bg-arctic/[0.01] border border-arctic/5 hover:border-arctic/10 hover:bg-arctic/[0.02] hover:-translate-y-2"
               }`}
             >
@@ -140,7 +158,7 @@ export default function Pricing() {
 
               <h3 className="text-[22px] font-medium mb-3 text-arctic/90">{plan.name}</h3>
               <p className="text-arctic/50 text-[15px] font-light mb-8 h-12 leading-relaxed">{plan.description}</p>
-              
+
               <div className="flex items-baseline gap-1 mb-10 pb-10 border-b border-arctic/5">
                 <span 
                   ref={el => { priceNodesRef.current[plan.id] = el; }} 
@@ -164,11 +182,11 @@ export default function Pricing() {
                 </ul>
               </div>
 
-              <Link 
-                href="/get-started" 
+              <Link
+                href="/get-started"
                 className={`w-full py-4 rounded-full text-[15px] font-medium text-center transition-all duration-500 ${
-                  plan.popular 
-                    ? "bg-arctic text-oceanic hover:scale-[1.02] shadow-[0_10px_20px_rgba(255,255,255,0.1)]" 
+                  plan.popular
+                    ? "bg-arctic text-oceanic hover:scale-[1.02] shadow-[0_10px_20px_rgba(255,255,255,0.1)]"
                     : "bg-arctic/5 text-arctic hover:bg-arctic/10 border border-arctic/5"
                 }`}
               >
