@@ -3,6 +3,9 @@ import CursorGlow from "@/components/common/CursorGlow";
 import Navbar from "@/components/navbar/Navbar";
 import Hero from "@/components/hero/Hero";
 import Features from "@/components/features/Features";
+import Solutions from "@/components/solutions/Solutions";
+import Developers from "@/components/developers/Developers";
+import Pricing from "@/components/pricing/Pricing";
 
 export default function Home() {
   return (
@@ -11,7 +14,10 @@ export default function Home() {
       <CursorGlow />
       <Navbar />
       <Hero />
+      <Solutions />
       <Features />
+      <Developers />
+      <Pricing />
     </main>
   );
 }
